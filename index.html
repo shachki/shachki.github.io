@@ -12,17 +12,41 @@
 <body>
     <h1>Shachar Ashkenazi</h1>
     
-    <p>I'm a Master's student in the Data Science program at the Hebrew University of Jerusalem. 
-        Here are some of the machine learning projects I have been working on over the past year:</p>
+    <p>I'm a Master's student in the Data Science program at the Hebrew University of Jerusalem. Over the past year, I have studied Bayesian Networks, Reinforcement Learning, and various Machine Learning topics. Below are some of the projects I have worked on:</p>
+    
+    <h2>Machine Learning Projects</h2>
     <ul>
-        <li><a href="https://github.com/shachki/Geometry-of-learning">Active Learning</a></li>
-        <li><a href="https://github.com/your-username/project-2">Project 2</a></li>
-        <li><a href="https://github.com/your-username/project-3">Project 3</a></li>
+        <li><a href="https://github.com/shachki/Geometry-of-learning">Active Learning</a>: Developed a new active learning method leveraging principal component analysis and SimCLR clustering strategies.</li>
+        <li><a href="https://github.com/your-username/project-2">Project 2</a>: [Brief description of project]</li>
+        <li><a href="https://github.com/your-username/project-3">Project 3</a>: [Brief description of project]</li>
     </ul>
-    <p>Before I discovered my interest in machine learning, I studied physics, where I focused on Quantum Field Theory, Quantum Information, and Quantum Simulation Theory.
-        Below is a link to all my publications in physics:</p>
+    
+    <h2>Active Learning Project</h2>
+    <p>The motivation for this algorithm can be summarized as follows:</p>
+    <ol>
+        <li>A simple one-layer neural network first learns directions in the data corresponding to principal components, ranked by their eigenvalues (EVs). Higher EVs mean more variance, so the network prioritizes those directions.</li>
+        <li>SimCLR projects images into a latent space where similar images cluster together. The output distribution of this latent space often resembles a mixture of Gaussians.</li>
+    </ol>
+    <p>Using these insights, the strategy involves feeding high-variance clusters (Gaussians) to the model first. High-variance directions in the data align with the leading principal components, which neural networks learn faster.</p>
+    
+    <h3>Implementation</h3>
+    <p>The dataset is divided into <i>I</i> clusters, each with a variance measure (Var<sub>i</sub>) and number of examples (<i>n<sub>i</sub></i>). We define:</p>
+    <ul>
+        <li><i>p<sub>i</sub> = n<sub>i</sub> / N</i> (proportion of samples in cluster <i>i</i>).</li>
+        <li><i>λ<sub>i</sub> = Var<sub>i</sub> / ∑<sub>j</sub> Var<sub>j</sub></i> (relative variance of cluster <i>i</i>).</li>
+    </ul>
+    <p>Assuming a labeling budget of <i>b</i>, the model iterates over the budget size, updating the labeled dataset by selecting a new labeled point from cluster <i>i</i> with probability:</p>
+    <p><i>( p<sub>i</sub> − l<sub>i</sub> / N ) ⋅ λ<sub>i</sub> / ∑<sub>j</sub> ( p<sub>j</sub> − l<sub>j</sub> / N ) ⋅ λ<sub>j</sub></i></p>
+    <p>where <i>l<sub>i</sub></i> is the number of already labeled points in the cluster.</p>
+    
+    <h2>Physics Research</h2>
+    <p>Before discovering my passion for machine learning, I conducted research in physics, focusing on Quantum Field Theory, Quantum Information, and Quantum Simulation Theory. Below is a link to all my physics publications:</p>
      <ul>
         <li><a href="https://inspirehep.net/authors/1894330">Physics Publications</a></li>
     </ul>
+    
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:shachar.ashkenazi@mail.huji.ac.il">shachar.ashkenazi@mail.huji.ac.il</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/shachar-ashkenazi">Shachar Ashkenazi</a></p>
 </body>
 </html>
